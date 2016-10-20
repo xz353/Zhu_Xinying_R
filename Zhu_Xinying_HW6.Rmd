@@ -35,7 +35,7 @@ histz+geom_histogram(bins=60)+ggtitle("Z Histogram")+xlim(2,6)#plot the z histog
 
 ```{r}
 #2. Create a simple scatter plot of Weight (“Carat”) and Price using Color (the “Color” column in the diamonds dataframe) as a facet.
-scatplot<-ggplot(diamonds,aes(x=carat,y=(price)),colour=color)
+scatplot<-ggplot(diamonds,aes(x=carat,y=price,colour=factor(color)))
 scatplot<-scatplot+geom_point()+ggtitle("Diamonds - Weight to Price by Color") + xlab("Weight")
 scatplot<-scatplot+ylab("Price")+labs(colour="factor(color)")
 print(scatplot)#plot the "price and weight" on scatter plot,x axis is carat, y axis is price. and colour to color, using color as facet. using geom_point for scatter plot.
