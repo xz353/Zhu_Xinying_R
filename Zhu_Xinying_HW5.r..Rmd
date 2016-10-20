@@ -9,7 +9,7 @@ output: html_document
 #1. Print to the console all methods and attributes associates with a dataframe. Write code to determine the number of columns in a dataframe
 library('ggplot2') #using the package ggplot2 in R into library function
 class(diamonds)#using the class function to get the class of diamonds
-methods(class=class(diamonds)[3])#using the mothods function . also, there are three classes in diamonds.
+methods(class=class(diamonds)[3])#using the mothods function. also, there are three classes in diamonds.
 attributes(diamonds)#using the attributes function with the dataframe to get all attributes.
 ncol(diamonds)#count the number of columns
 ```
@@ -31,7 +31,8 @@ lapply(diamonds,class) #using the lapply function to determine the type of each 
 
 ```{r}
 #5. Write code that will loop through any dataframe and calculate the mean of every numeric column. Label the output with the name of the column.
-lapply(diamonds[sapply(diamonds,is.numeric)],mean)#using the sapply function into every numeric column, then using lapply function to get the mean of every numeric column
+diamonds_num<-diamonds[sapply(diamonds,is.numeric)]#using the sapply function to find numeric colume
+lapply(diamonds_num,mean,na.rm=TRUE)#using lapply function to get the mean of every numeric column
 
 ```
 
@@ -44,7 +45,7 @@ summary(diamonds[sapply(diamonds,is.factor)])#using the sapply with every factor
 ```{r}
 #7. Write code that will loop through any dataframe and determine the number of rows containing NA (missing value) in each column and the percentage of rows containing an NA in any of the columns. HINT: In a single row, zero or more columns may contain an NA. For the percentage of rows containing NA in any column, do not double count NA in rows that contain more than one column with an NA. Print the results to the console.
 apply(sapply(diamonds,is.na),2,sum)#using apply function extract the number of rows containing NA(missing value) in each column
-sum(rowSums(is.na(diamonds))>0)/nrow(diamonds)#using sum function to get the percentage of rows containing an NA in any of the columns
+sum(rowSums(is.na(diamonds))>0)/nrow(diamonds) #using sum function to get the percentage of rows containing an NA in any of the columns
 
 ```
 
