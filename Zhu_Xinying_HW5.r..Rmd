@@ -1,3 +1,7 @@
+
+#Overall comment: Good code! Clear and efficient. 
+
+
 ---
 title: 'HW #5'
 author: "Zhu_Xinying_R"
