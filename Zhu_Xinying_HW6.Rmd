@@ -33,6 +33,9 @@ histz<-ggplot(diamonds,aes(z))#create the z histogram
 histz+geom_histogram(bins=60)+ggtitle("Z Histogram")+xlim(2,6)#plot the z histogram,also named Z Histogram. using xlim to remove the outliers that out of 2 to 6.
 ```
 
+#Comment: Yes, this way do work but why not think one simplier way? you can first filter out the numeric columns in the 
+#diamonds dataset and then design a loop to draw histogram for each.
+
 ```{r}
 #2. Create a simple scatter plot of Weight (“Carat”) and Price using Color (the “Color” column in the diamonds dataframe) as a facet.
 scatplot<-ggplot(diamonds,aes(x=carat,y=price,colour=factor(color)))
@@ -41,6 +44,8 @@ scatplot<-scatplot+ylab("Price")+labs(colour="factor(color)")
 print(scatplot)#plot the "price and weight" on scatter plot,x axis is carat, y axis is price. and colour to color, using color as facet. using geom_point for scatter plot.
 
 ```
+#Comment: Good try! I see your understanding in ggplot with layers. But I hope you can format your code better. I have a good format example you can refer to
+ggplot(diamonds,aes(carat,price))+geom_point(aes(color=factor(color)))+labs(title="Diamonds-Weight to Price by Color",x='Weight',y='Price')
 
 ```{r}
 #3. Let’s remove the non-linearity and replot. Think about transforming both price and weight. Given that we are working with dollars (Price); the first transformation we might try is the natural log. Add the transformed columns to the dataframe and replot.
